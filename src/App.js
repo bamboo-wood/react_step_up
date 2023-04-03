@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState, useMemo } from "react";
 import { ChildArea } from "./components/ChildArea";
 
 export default function App() {
@@ -10,6 +10,12 @@ export default function App() {
   const onClickOpen = () => setOpen(!open);
 
   const onClickClose = useCallback(() => setOpen(false), [setOpen]);
+
+  const temp = useMemo(() => {
+    console.log("usememo");
+    return 1 + 3;
+  }, []);
+  console.log(temp);
 
   return (
     <>
